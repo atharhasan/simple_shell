@@ -10,7 +10,7 @@ first of all we will add the header file with the most common libraries.
 
 **Fork a Child Process: Use fork to create a child process that will execute the command.**
 
-**Execute Commands: In the child process, use exec functions (like execl, execvp, etc.) to run the specified command with its arguments.**
+**Execute Commands: In the child process, use exec functions (like execl, execve, etc.) to run the specified command with its arguments.**
 
 **Wait for Child: In the parent process, use wait or waitpid to wait for the child process to finish.**
 
