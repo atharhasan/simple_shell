@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * main - shell main file
  * @argc: The number of command-line arguments but it's not used
@@ -6,6 +7,7 @@
  * @env2: Another array of strings for "env" command
  * Return: value
  */
+
 int main(int argc, char **env, char **env2)
 {
 	char command[512], *token, *args[512];

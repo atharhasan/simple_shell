@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * check_strcmp - Handle special cases
  * @args: Array of arguments
@@ -6,6 +7,7 @@
  * @prev_dir: Previous directory
  * @error_count: Error count
 */
+
 void check_strcmp(char *args[], char **env, char *prev_dir, int error_count)
 {
 	char cwd[100];
