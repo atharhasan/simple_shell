@@ -16,12 +16,12 @@
 
 extern char **environ;
 
-char *find_executable(char* command);
+char *find_executable(char *command);
 int fork_fun(char *args[], char **env, int error_count);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 int cd_handle(char *args[], char **env, int argCount, int error_count);
-void check_strcmp (char *args[], char **env, char *prev_dir, int error_count);
+void check_strcmp(char *args[], char **env, char *prev_dir, int error_count);
 
 #endif
