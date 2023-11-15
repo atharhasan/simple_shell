@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * handle_env - function that handle env
  * @env2: Another array of strings for "env" command
@@ -13,6 +12,55 @@ void handle_env(char **env2)
 		env2++;
 	}
 }
+
+
+/**
+ * _getline - function that handle env
+ * @env2: Another array of strings for "env" command
+ */
+ssize_t _getline(char **line, size_t *n, FILE *stream)
+{
+	 int c;
+    size_t i = 0;
+	char *temp;
+
+    if (!line || !n) {
+        return (-1);
+    }
+
+    if (*n == 0) {
+        *n = 128;
+    }
+
+    if (*line == NULL) {
+        *line = (char *)malloc(*n);
+        if (*line == NULL) {
+            return (-1); 
+        }
+    }
+
+    while ((c = fgetc(stream)) != EOF && c != '\n') {
+        if (i >= *n - 1) {
+            *n *= 2;
+            temp = realloc(*line, *n);
+            if (temp == NULL) {
+                return (-1);
+            }
+            *line = temp;
+        }
+
+        (*line)[i++] = (char)c;
+    }
+
+    if (i == 0 && c == EOF) {
+        return (-1);
+    }
+
+    (*line)[i] = '\0'; 
+
+    return (i);
+}
+
 
 /**
  * main - shell main file
@@ -32,7 +80,7 @@ int main(int argc, char **env, char **env2)
 	{
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
-		linval = getline(&command, &len, stdin);
+		linval = _getline(&command, &len, stdin);
 		if (linval == -1)
 			break;
 		error_count++;
