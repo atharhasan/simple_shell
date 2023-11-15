@@ -23,5 +23,6 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 int cd_handle(char *args[], char **env, int argCount, int error_count);
 void check_strcmp (char *args[], char **env, char *prev_dir, int error_count);
+void handle_env(char **env2);
 
 #endif
